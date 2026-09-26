@@ -1,0 +1,62 @@
+/* ۱. تعریف Arial فقط برای کاراکترها و اعداد انگلیسی */
+@font-face {
+  font-family: 'CustomFont';
+  src: local('Arial');
+  unicode-range: U+0020-007E;
+}
+
+/* ۲. تعریف B Nazanin برای حروف فارسی */
+@font-face {
+  font-family: 'CustomFont';
+  src: local('B Nazanin'), local('BNazanin');
+  unicode-range: U+0600-06FF, U+FB50-FDFF, U+FE70-FEFE;
+}
+
+/* ۳. اعمال نوع فونت به کل صفحه به جز کدها و آیکون‌ها */
+*:not(pre):not(code):not(pre *):not(code *):not(mat-icon):not(.material-icons):not(i):not(svg) {
+  font-family: 'CustomFont', sans-serif !important;
+}
+
+/* ۴. بزرگ‌نمایی (18px) برای متن پیام‌ها و پاسخ‌های چت */
+p, h1, h2, h3, h4, h5, h6,
+textarea,
+[contenteditable="true"],
+.model-response-text,
+.user-prompt,
+.chat-message,
+.text-content,
+.markdown-body,
+.rendered-markdown {
+  font-size: 18px !important;
+  line-height: 1.8 !important;
+}
+
+/* ۵. تنظیم اختصاصی و خوانا کردن منوی سمت چپ (سایدبار تاریخچه) */
+nav,
+aside,
+[role="navigation"],
+.sidebar,
+mat-sidenav {
+  font-size: 15px !important; /* سایز متناسب برای عناوین چت در منو */
+}
+
+nav *,
+aside *,
+[role="navigation"] *,
+.sidebar *,
+mat-sidenav * {
+  font-size: inherit;
+}
+
+/* ۶. جلوگیری از به هم ریختن آیکون‌های منو */
+mat-icon, .material-icons, .mat-icon, i, svg {
+  font-size: unset !important;
+}
+
+/* ۷. سایز و فونت اختصاصی کادر کدها */
+pre, code, pre *, code *, .monaco-editor, .monaco-editor * {
+  font-family: 'Consolas', 'Courier New', monospace !important;
+  font-size: 15px !important;
+  line-height: 1.4 !important;
+  direction: ltr !important;
+}
